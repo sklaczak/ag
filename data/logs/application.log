@@ -1,0 +1,227 @@
+2015-04-10T12:15:46+02:00 CRIT (2): [--error------->
+2015-04-10T12:15:46+02:00 CRIT (2): Application error
+2015-04-10T12:15:46+02:00 CRIT (2): array
+2015-04-10T12:15:46+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:15:46+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\application\forms\Order.php(23): Zend_Form_Element->__construct()
+#1 C:\Sebek\projekty\okno\aitsi\application\forms\Order.php(7): Application_Form_Order->addElementAddress()
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Form.php(240): Application_Form_Order->init()
+#3 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(8): Zend_Form->__construct()
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#5 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#6 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#9 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#10 {main}
+2015-04-10T12:16:22+02:00 CRIT (2): [--error------->
+2015-04-10T12:16:22+02:00 CRIT (2): Application error
+2015-04-10T12:16:22+02:00 CRIT (2): array
+2015-04-10T12:16:22+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:16:22+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('DESCRIBE `order...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Mysql.php(169): Zend_Db_Adapter_Pdo_Abstract->query('DESCRIBE `order...')
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(836): Zend_Db_Adapter_Pdo_Mysql->describeTable('order', NULL)
+#5 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(875): Zend_Db_Table_Abstract->_setupMetadata()
+#6 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1034): Zend_Db_Table_Abstract->_setupPrimaryKey()
+#7 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(43): Zend_Db_Table_Abstract->insert(Array)
+#8 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(14): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#12 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#13 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#14 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#15 {main}
+2015-04-10T12:17:36+02:00 CRIT (2): [--error------->
+2015-04-10T12:17:36+02:00 CRIT (2): Application error
+2015-04-10T12:17:36+02:00 CRIT (2): array
+2015-04-10T12:17:36+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:17:36+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('INSERT INTO `or...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(576): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `or...', Array)
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1076): Zend_Db_Adapter_Abstract->insert('order', Array)
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(43): Zend_Db_Table_Abstract->insert(Array)
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(14): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a')
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T12:34:48+02:00 CRIT (2): [--error------->
+2015-04-10T12:34:48+02:00 CRIT (2): Application error
+2015-04-10T12:34:48+02:00 CRIT (2): array
+2015-04-10T12:34:48+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:34:48+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('INSERT INTO `or...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(576): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `or...', Array)
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1076): Zend_Db_Adapter_Abstract->insert('order', Array)
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(43): Zend_Db_Table_Abstract->insert(Array)
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(14): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a')
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T12:42:38+02:00 CRIT (2): [--error------->
+2015-04-10T12:42:38+02:00 CRIT (2): Application error
+2015-04-10T12:42:38+02:00 CRIT (2): array
+2015-04-10T12:42:38+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:42:38+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('INSERT INTO `or...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(576): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `or...', Array)
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1076): Zend_Db_Adapter_Abstract->insert('order', Array)
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(43): Zend_Db_Table_Abstract->insert(Array)
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(19): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a', Object(Application_Model_Basket))
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T12:43:33+02:00 CRIT (2): [--error------->
+2015-04-10T12:43:33+02:00 CRIT (2): Application error
+2015-04-10T12:43:33+02:00 CRIT (2): array
+2015-04-10T12:43:33+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:43:33+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('INSERT INTO `or...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(576): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `or...', Array)
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1076): Zend_Db_Adapter_Abstract->insert('order', Array)
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(47): Zend_Db_Table_Abstract->insert(Array)
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(19): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a', Object(Application_Model_Basket))
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T12:45:16+02:00 CRIT (2): [--error------->
+2015-04-10T12:45:16+02:00 CRIT (2): Application error
+2015-04-10T12:45:16+02:00 CRIT (2): array
+2015-04-10T12:45:16+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:45:16+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1034): Zend_Db_Table_Abstract->_setupPrimaryKey()
+#1 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\OrderItem.php(14): Zend_Db_Table_Abstract->insert(Array)
+#2 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(50): Application_Model_DbTable_OrderItem->addToOrder('3', 5367, 7, '519.50')
+#3 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(19): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a', Object(Zend_Session_Namespace))
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#5 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#6 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#9 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#10 {main}
+2015-04-10T12:46:57+02:00 CRIT (2): [--error------->
+2015-04-10T12:46:57+02:00 CRIT (2): Application error
+2015-04-10T12:46:57+02:00 CRIT (2): array
+2015-04-10T12:46:57+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T12:46:57+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query('INSERT INTO `or...', Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(576): Zend_Db_Adapter_Pdo_Abstract->query('INSERT INTO `or...', Array)
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1076): Zend_Db_Adapter_Abstract->insert('order_item', Array)
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\OrderItem.php(14): Zend_Db_Table_Abstract->insert(Array)
+#6 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(50): Application_Model_DbTable_OrderItem->addToOrder('4', 5367, 7, '519.50')
+#7 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(19): Application_Model_DbTable_Order->create('a', 'a@wp.pl', 'a', Object(Zend_Session_Namespace))
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->indexAction()
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('indexAction')
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#12 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#13 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#14 {main}
+2015-04-10T16:33:23+02:00 CRIT (2): [--error------->
+2015-04-10T16:33:23+02:00 CRIT (2): Application error
+2015-04-10T16:33:23+02:00 CRIT (2): array
+2015-04-10T16:33:23+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T16:33:23+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('page/contact.ph...')
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('page/contact.ph...')
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('page/contact.ph...', NULL)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#5 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#6 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('contactAction')
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#11 {main}
+2015-04-10T16:51:59+02:00 CRIT (2): [--error------->
+2015-04-10T16:51:59+02:00 CRIT (2): Application error
+2015-04-10T16:51:59+02:00 CRIT (2): array
+2015-04-10T16:51:59+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T16:51:59+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1390): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(17): Zend_Db_Table_Abstract->fetchAll(Object(Zend_Db_Table_Select))
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(44): Application_Model_DbTable_Order->getListForSession()
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->listAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('listAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T16:52:25+02:00 CRIT (2): [--error------->
+2015-04-10T16:52:25+02:00 CRIT (2): Application error
+2015-04-10T16:52:25+02:00 CRIT (2): array
+2015-04-10T16:52:25+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T16:52:25+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1390): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(17): Zend_Db_Table_Abstract->fetchAll(Object(Zend_Db_Table_Select))
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(44): Application_Model_DbTable_Order->getListForSession()
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->listAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('listAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T16:52:29+02:00 CRIT (2): [--error------->
+2015-04-10T16:52:29+02:00 CRIT (2): Application error
+2015-04-10T16:52:29+02:00 CRIT (2): array
+2015-04-10T16:52:29+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T16:52:29+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Statement.php(303): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Abstract.php(480): Zend_Db_Statement->execute(Array)
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Adapter\Pdo\Abstract.php(242): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Db\Table\Abstract.php(1390): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\Sebek\projekty\okno\aitsi\application\models\DbTable\Order.php(17): Zend_Db_Table_Abstract->fetchAll(Object(Zend_Db_Table_Select))
+#6 C:\Sebek\projekty\okno\aitsi\application\controllers\OrderController.php(44): Application_Model_DbTable_Order->getListForSession()
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(516): OrderController->listAction()
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('listAction')
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#13 {main}
+2015-04-10T16:56:30+02:00 CRIT (2): [--error------->
+2015-04-10T16:56:30+02:00 CRIT (2): Application error
+2015-04-10T16:56:30+02:00 CRIT (2): array
+2015-04-10T16:56:30+02:00 CRIT (2): Request Parameters: Array
+2015-04-10T16:56:30+02:00 CRIT (2): Stack trace:#0 C:\Sebek\projekty\okno\aitsi\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('page/private.ph...')
+#1 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('page/private.ph...')
+#2 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('page/private.ph...', NULL)
+#3 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#4 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#5 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#6 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('privateAction')
+#7 C:\Sebek\projekty\okno\aitsi\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 C:\Sebek\projekty\okno\aitsi\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\Sebek\projekty\okno\aitsi\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\Sebek\projekty\okno\aitsi\public\index.php(48): Zend_Application->run()
+#11 {main}

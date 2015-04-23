@@ -1,0 +1,67 @@
+.navbar-wrapper {
+    position: inherit;
+}
+
+.productItem .productPhoto {
+    height: 260px;
+    vertical-align: bottom;
+    display: table-cell;
+    text-align: center;
+    width: 100%;
+}
+
+.productItem .productPhoto img {
+    width: 90%;
+    max-width: 260px;
+}
+
+.productItem .productName {
+    height: 3em;
+    font-size: 14px;
+    text-align: center;
+}
+
+.productItem .productPrice {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.productItem p {
+    text-align: center;
+}
+
+.container .row nav {
+    text-align: center;
+}
+
+
+#basketResponceDialog .modal-body * {
+    text-align: center;
+}
+
+.basketTable>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.basketTable img {
+    max-width: 200px;
+    width: 100%;
+}
+
+#basketInfo {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.createOrderButton {
+    float: right;
+}
+
+.productDetails * {
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+}

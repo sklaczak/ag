@@ -1,0 +1,537 @@
+
+-- phpMyAdmin SQL Dump
+-- version 4.1.8
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: 10 Kwi 2015, 12:28
+-- Server version: 5.5.36-cll
+-- PHP Version: 5.4.23
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `sebasti3_aitsi`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `order`
+--
+
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(256) NOT NULL,
+  `email` text NOT NULL,
+  `name` text NOT NULL,
+  `address` text NOT NULL,
+  `amount` decimal(18,2) NOT NULL,
+  `creation_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `order_item`
+--
+
+CREATE TABLE IF NOT EXISTS `order_item` (
+  `fk_order` int(11) NOT NULL,
+  `fk_product` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` decimal(18,2) NOT NULL,
+  `amount` decimal(18,2) NOT NULL,
+  KEY `fk_order` (`fk_order`,`fk_product`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `product`
+--
+
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(18,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5466 ;
+
+--
+-- Zrzut danych tabeli `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `price`) VALUES
+(5366, 'Męskie obuwie sportowe Versace Jeans E0YLB0177055202 2051-014', 'Męskie obuwie sportowe Versace Jeans E0YLB0177055202 Męskie buty sportowe znanej marki Versace Jeans, cenionej na całym świecie. Wykonane z najwyższej jakości materiałów ( połączenie skóry naturalnej z materiałem tekstylnym ). Kolor niebieski idealnie wpisuje się w najmodniejsze trendy. Na języku sygnowane logiem marki Versace Jeans. Jasna podeszwa nadaje im lekkości i sprawia, że pasują zarówno do wiosennych, jak i letnich stylizacji. Idealne do sportowych stylizacji. Najlepsza jakość w najlepszej cenie!', '519.50'),
+(5367, 'Męskie obuwie sportowe Versace Jeans E0YLB0177055899 2051-015', 'Męskie obuwie sportowe Versace Jeans E0YLB0177055899 Męskie buty sportowe znanej marki Versace Jeans, cenionej na całym świecie. Wykonane z najwyższej jakości materiałów ( połączenie skóry naturalnej z materiałem tekstylnym ). Kolor czarny - zawsze modny i zawsze na czasie. Na języku sygnowane logiem marki Versace Jeans. Jasna podeszwa nadaje im lekkości i sprawia, że pasują zarówno do wiosennych, jak i letnich stylizacji. Idealne do sportowych stylizacji. Najlepsza jakość w najlepszej cenie! ', '519.50'),
+(5368, 'Damskie obuwie sportowe Versace Jeans E0YLBSA275759427 2051-009', 'Damskie obuwie sportowe Versace Jeans E0YLBSA275759427 Damskie buty sportowe znanej i cenionej marki Versace Jeans, cenionej na całym świecie. Fason tzn. skechers. Wykonane z najwyższej jakości materiałów ( połączenie materiałów tekstylnych ze skórą naturalną ). Kolor beżowy - idealny do wiosenno-letnich stylizacji. Zlote, błyszczące wstawki dodają im niezwykłego charakteru i sprawiają, że nikt nie przejdzie obojętnie. Na języku sygnowane logiem marki Versace Jeans. Jasna podeszwa nadaje im lekkości i sprawia, że pasują zarówno do wiosennych, jak i letnich stylizacji. Świetnie pasują do sportowych stylizacji na codzień, jak i na siłownię. Najlepsza jakość w najlepszej cenie!', '519.50'),
+(5369, 'Szpilki Versace Jeans E0YLBS8376460899 2051-012', 'Szpilki Versace Jeans E0YLBS8376460899 Przepiękne sandały na szpilce znanej i cenionej marki Versace Jeans. Model zwany również "gladiatorkami". Wykonane z najwyższej jakości skóry ekologicznej. Wysoki, ale dobrze wyważony i stabilny obcas. Z boku sygnowane logiem marki Versace Jeans. Kolor czarny - uniwersalny i zawsze na czasie. Świetnie pasują zarówno do eleganckich, wieczorowych kreacji, jak i zawsze modnych jeansów. Elegancja w najlepszym wydaniu!', '839.50'),
+(5370, 'Szpilki Versace Jeans E0YLBS7376465899 2051-011', 'Szpilki Versace Jeans E0YLBS7376465899 Przepiękne sandały na szpilce znanej i cenionej marki Versace Jeans. Wykonane z najwyższej jakości skóry ekologicznej. Wysoki, ale dobrze wyważony i stabilny obcas. Z boku sygnowane logiem marki Versace Jeans. Kolor czarny - uniwersalny i zawsze na czasie. Świetnie pasują zarówno do eleganckich, wieczorowych kreacji, jak i zawsze modnych jeansów. Elegancja w najlepszym wydaniu!', '849.50'),
+(5371, 'Espadryle Love Moschino Canvas Fluo Fuxia 2051-016', 'Espadryle Love Moschino Canvas Fluo Fuxia Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Kolor różowy-neonowy ożywi każdą wiosenno-letnią stylizację. Delikatne, ozdobne serduszka dodają im niesamowitego uroku. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! ', '399.50'),
+(5372, 'Espadryle Love Moschino Canvas Fluo Giallo 2051-014', 'Espadryle Love Moschino Canvas Fluo Giallo Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Kolor żółty-neonowy ożywi każdą wiosenno-letnią stylizację. Delikatne, ozdobne serduszka dodają im niesamowitego uroku. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! * Torba LOVE MOSCHINO widoczna na zdjęciu nie jest częścią zestawu. Dostępna w naszym sklepie w atrakcyjnej cenie!', '399.50'),
+(5373, 'Espadryle Love Moschino Canvas Fluo Aranci 2051-015', 'Espadryle Love Moschino Canvas Fluo Aranci Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Kolor pomarańczowy- delikatnie neonowy ożywi każdą wiosenno-letnią stylizację. Delikatne, ozdobne serduszka dodają im niesamowitego uroku. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! * Torba LOVE MOSCHINO widoczna na zdjęciu nie jest częścią zestawu. Dostępna w naszym sklepie w atrakcyjnej cenie! * Torebka widoczna na zdjęciu nie jest częścią zestawu.', '399.50'),
+(5374, 'Espadryle Love Moschino Canvas Nero 2051-013', 'Espadryle Love Moschino Canvas Nero Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Kolor czarny- uniwersalny i zawsze na czasie. Wyszywana złoto-czerwona ozdoba dodaje im niesamowitego uroku. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! ', '399.50'),
+(5375, 'Torebka Love Moschino Borsa Safino PVC Giallo 2051-002', 'Torebka Love Moschino Borsa Safino PVC Giallo Torebka znanej i cenionej,światowej marki LOVE MOSCHINO. Wykonana z najwyższej jakości materiałów. Połączenie koloru srebrnego z neonowym żółtym - idealne do wiosenno-letnich stylizacji. Zamykana na magnes. W środku 1 duża komora, dodatkowa mała torebka/portfel oraz kilka przegródek ( na klucze i telefon ). Na przodzie sygnowana logiem marki LOVE MOSCHINO. Idealna zarówno do sukienek, kostiumów, jak i luźnych, codziennych stylizacji. Wymiary: 26cm x 19 cm x 30 cm wysokość rączek: 22 cm * Buty widoczne na zdjęciu nie są częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '829.50'),
+(5376, 'Torebka Love Moschino Borsa Safino PVC Arancio 2051-001', 'Torebka Love Moschino Borsa Safino PVC Arancio Torebka znanej i cenionej,światowej marki LOVE MOSCHINO. Wykonana z najwyższej jakości materiałów. Połączenie koloru srebrnego z neonowym pomarańczowym - idealne do wiosenno-letnich stylizacji. Zamykana na magnes. W środku 1 duża komora, dodatkowa mała torebka/portfel oraz kilka przegródek ( na klucze i telefon ). Na przodzie sygnowana logiem marki LOVE MOSCHINO. Idealna zarówno do sukienek, kostiumów, jak i luźnych, codziennych stylizacji. Wymiary: 26cm x 19 cm x 30 cm wysokość rączek: 22 cm * Buty widoczne na zdjęciu nie są częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '829.50'),
+(5377, 'Espadryle Love Moschino Intr.etnico Multic 2051-010', 'Love Moschino Intr.etnico Multic Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Żywe, jaskrawe kolory ożywią każdą wiosenno-letnią stylizację. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! * Torebka widoczna na zdjęciu nie jest częścią zestawu. ', '479.50'),
+(5378, 'Espadryle Love Moschino Can.St.jungle Bian 2051-011', 'Espadryle Love Moschino Can.St.jungle Bian Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Żywe kolory i kwiatowy wzór ożywią każdą wiosenno-letnią stylizację. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! * Torebka widoczna na zdjęciu nie jest częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '379.50'),
+(5379, 'Torebka Love Moschino Borsa Canvas St.Jungle Bianco 2051-003', 'Torebka Love Moschino Borsa Canvas St.Jungle Bianco Torebka znanej i cenionej,światowej marki LOVE MOSCHINO. Wykonana z najwyższej jakości materiałów. Połączenie wielu "żywych" kolorów - idealne do wiosenno-letnich stylizacji. Na przodzie sygnowana logiem marki LOVE MOSCHINO. Idealna zarówno do sukienek, kostiumów, jak i luźnych, codziennych stylizacji. Wymiary: 33 cm (44 cm góra) x 29,5 cm x 15 cm * Buty widoczne na zdjęciu nie są częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '739.50'),
+(5380, 'Espadryle Love Moschino Can.st.jungle Nero 2051-012', 'Espadryle Love Moschino Can.st.jungle Nero Niezwykle urocze espadryle znanej i cenionej marki LOVE MOSCHINO. Wykonane z najwyższej jakości materiałów - wyjątkowo przyjemnych w dotyku. Sznurkowa podeszwa sprawia, że są niezwykle wygodne. Żywe kolory i kwiatowy wzór ożywią każdą wiosenno-letnią stylizację. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! * Torebka widoczna na zdjęciu nie jest częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '379.50'),
+(5381, 'Torebka Love Moschino Borsa Canvas St.Jungle Nero 2051-004', 'Torebka Love Moschino Borsa Canvas St.Jungle Nero Torebka znanej i cenionej,światowej marki LOVE MOSCHINO. Wykonana z najwyższej jakości materiałów. Połączenie czerni z kontastowymi, "żywymi" kolorami jest idealne do wiosenno-letnich stylizacji. Na przodzie sygnowana logiem marki LOVE MOSCHINO. Idealna zarówno do sukienek, kostiumów, jak i luźnych, codziennych zestawów. Wymiary: 32 cm (26 cm góra) x 32 cm x 12 cm * Buty widoczne na zdjęciu nie są częścią zestawu. Dostępne w naszym sklepie w atrakcyjnej cenie!', '739.50'),
+(5382, 'Sandały Rieker 66177-64 Beige Komb 2051-843', 'Sandały Rieker 66177-64 Beige Komb Niezwykle wygodne sandały na niewielkiej koturnie znanej i cenionej marki RIEKER. Wykonane z najwyższej jakości skóry naturalnej - niezwykle miękkiej i przzyjemnej w dotyku. Odcienie beżu idealnie ożywią każdą wiosenno-letnią stylizację. Ozdoba na przodzie i widoczne przeszycia dodają im kobiecości i niesamowitego uroku. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! ', '239.50'),
+(5383, 'Sandały Rieker 62464-33 Rot 2051-844', 'Sandały Rieker 62464-33 Rot Niezwykle wygodne sandały na niewielkiej koturnie znanej i cenionej marki RIEKER. Wykonane z najwyższej jakości skóry naturalnej - niezwykle miękkiej i przyjemnej w dotyku. Wkładka ze skóry ekologicznej. Zapinane na kostce na rzep. Odcień zgaszonej czerwieni idealnie ożywi każdą wiosenno-letnią stylizację. Pasują zarówno do sukienek, spódnic, jak i zawsze modnych jeansów. Idealne do biegania na codzień! ', '229.50'),
+(5384, 'Sandały Versace Jeans E0YLBS8476467511 2051-013', 'Sandały Versace Jeans E0YLBS8476467511 Przepiękne sandały na słupku znanej i cenionej marki Versace Jeans. Wykonane z najwyższej jakości skóry ekologicznej. Wkładka ze skóry naturalnej. Wysoki, ale dobrze wyważony i stabilny obcas. Z boku oraz na zamku sygnowane logiem marki Versace Jeans. Fason zwany gladiatorkami - jeden z najmodniejszych w tym sezonie. Połączenie odcieni brązu przypominające wężową skórkę. Złoty obcas dodaje im niesamowitego uroku. Świetnie pasują zarówno do eleganckich, wieczorowych kreacji, jak i zawsze modnych jeansów. Elegancja w najlepszym wydaniu!', '879.50'),
+(5385, 'Sneakersy Tommy Hilfiger Stella 7c Beige/Gold 2051-397', 'Sneakersy Tommy Hilfiger Stella 7c Beige Gold Damskie buty sportowe marki Tommy Hilfiger, cenionej na całym świecie. Jeden z najmodniejszy w sezonie fasonów, tzn. sneakersy. Wykonane z najwyższej jakości materiałów ( połączenie skóry naturalnej z materiałem tekstylnym ). Kolor beżowy, który idealnie wpisuje sie w najmodniejsze trendy. Złote sznurówki dodają im niezwykłego uroku. Język sygnowany logiem marki Tommy Hilfiger. Jasna podeszwa nadaje im lekkości i sprawia, że pasują zarówno do wiosennych, jak i letnich stylizacji. Model na ukrytej koturnie, która podnosi sylwetkę i wydłuża nogi. Pasują zarówno do sportowych sukienek, legginsów, jak i zawsze modnych jeansów. Najlepsza jakość w najlepszej cenie! ', '579.50'),
+(5386, 'Damskie obuwie sportowe Tommy Hilfiger Victoria 2d Whit 2051-398', 'Damskie obuwie sportowe Tommy Hilfiger Victoria 2d Whit Najnowsza kolekcja fantastycznych trampek znanej i cenionej marki TOMMY HILFIGER. Wykonane z najwyższej jakości materiałów. Z tyłu oraz na języku sygnowane logiem marki Tommy Hilfiger. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Kolor biały, połączony z granatem sprawia, że wyglądają niezwykle świeżo i pasują do każdej wiosenno-letniej stylizacji. Z całą pewnością zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '289.50'),
+(5387, 'Damskie obuwie sportowe Tommy Hilfiger Kesha 6d Midnight 2051-396', 'Damskie obuwie sportowe Tommy Hilfiger Kesha 6d Midnight Najnowsza kolekcja fantastycznych trampek znanej i cenionej marki TOMMY HILFIGER. Wykonane z najwyższej jakości materiałów. Z tyłu oraz na języku sygnowane logiem marki Tommy Hilfiger. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Kolor granatowy połączony z brązem i bielą - idealny do wiosenno-letnich stylizacji. Z całą pewnością zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '299.50'),
+(5388, 'Mokasyny Filipe Shoes 5911 nb Castanho 2051-076', 'Mokasyny Filipe Shoes 5911 nb Castanho Męskie mokasyny znanej i cenionej marki FILIPE. Niezwykle zgrabne, świetnie wyprofilowane. Wykonane z najwyższej jakości miękkiej skóry naturalnej. Ażurowy materiał dodaje im lekkości i sprawia, że są niezwykle przewiewne. Ozdobione wiązaniem na przodzie. Świetne do stylu casualowego. Idealnie sprawdzą się do wiosenno-letnich stylizacji. ', '399.50'),
+(5389, 'Mokasyny Filipe Shoes 5911 nb Preto 2051-077', 'Mokasyny Filipe Shoes 5911 nb Preto Męskie mokasyny znanej i cenionej marki FILIPE. Niezwykle zgrabne, świetnie wyprofilowane. Wykonane z najwyższej jakości miękkiej skóry naturalnej. Ażurowy materiał dodaje im lekkości i sprawia, że są niezwykle przewiewne. Ozdobione wiązaniem na przodzie. Świetne do stylu casualowego. Idealnie sprawdzą się do wiosenno-letnich stylizacji. ', '399.50'),
+(5390, 'Mokasyny Filipe Shoes 5911 nb Marinho 2051-078', 'Mokasyny Filipe Shoes 5911 nb Marinho Męskie mokasyny znanej i cenionej marki FILIPE. Niezwykle zgrabne, świetnie wyprofilowane. Wykonane z najwyższej jakości miękkiej skóry naturalnej. Ażurowy materiał dodaje im lekkości i sprawia, że są niezwykle przewiewne. Ozdobione wiązaniem na przodzie. Świetne do stylu casualowego. Idealnie sprawdzą się do wiosenno-letnich stylizacji. ', '399.50'),
+(5391, 'Baleriny Filipe shoes 5192 et Beige 2051-072', 'Baleriny Filipe shoes 5192 et Beige Baleriny znanej i cenionej marki FILIPE. Wykonane z najwyższej jakości skory naturalnej - niezwykle miękkiej i delikatnej. Kolor beżowy, który nie tylko wygląda świeżo, ale też jest uniwersalny, zawsze modny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '239.50'),
+(5392, 'Baleriny Filipe shoes 5192 cc Marinho 2051-070', 'Baleriny Filipe shoes 5192 cc Marinho Baleriny znanej i cenionej marki FILIPE. Wykonane z najwyższej jakości skory naturalnej - niezwykle miękkiej i delikatnej. Kolor granatowy, który jest uniwersalny, zawsze modny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '239.50'),
+(5393, 'Baleriny Filipe shoes 5192 et Platina 2051-071', 'Baleriny Filipe shoes 5195 et Platina Baleriny znanej i cenionej marki FILIPE. Wykonane z najwyższej jakości skory naturalnej - niezwykle miękkiej i delikatnej. Kolor złoty, który nie tylko wygląda świeżo, ale też jest uniwersalny, zawsze modny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '239.50'),
+(5394, 'Mokasyny na koturnie Filipe Shoes 7513 vz Marinho 2051-075', 'Mokasyny na koturnie Filipe Shoes 7513 vz Marinho Mokasyny znanej i cenionej marki FILIPE. Fason na niewielkiej koturnie, która dodaje im sportowego charakteru. Wykonane z najwyższej jakości skory naturalnej lakierowanej- niezwykle miękkiej i delikatnej. Kolor czarny- uniwersalny, zawsze modny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '289.50'),
+(5395, 'Mokasyny Filipe shoes 7703 cc Preto 2051-073', 'Mokasyny Filipe shoes 7703 cc Preto Mokasyny znanej i cenionej marki FILIPE. Lekko zaokrąglony fason przypominający baleriny. Wykonane z najwyższej jakości skory naturalnej zamszowej- niezwykle miękkiej i delikatnej. Kolor czarny- uniwersalny, zawsze modny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą klamerką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '239.50'),
+(5396, 'Mokasyny Filipe shoes 8130 ca/vc Amarelo/Camel 2051-074', 'Mokasyny Filipe shoes 8130 ca/vc Amarelo/Camel Mokasyny znanej i cenionej marki FILIPE. Wykonane z najwyższej jakości skory naturalnej zamszowej- niezwykle miękkiej i delikatnej. Kolor beżowo-rudy, który świetnie ożywi wiosenno-letnie stylizacje. Klasyczny fason, ozdobiony skórzanym sznurowaniem, które dodaje im niesamowitego uroku. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '219.50'),
+(5397, 'Mokasyny Filipe shoes 5166 ca Marinho 2051-069', 'Mokasyny Filipe shoes 5166 ca Marinho Mokasyny znanej i cenionej marki FILIPE. Wykonane z najwyższej jakości skory naturalnej zamszowej- niezwykle miękkiej i delikatnej. Kolor granatowy - uniwersalny, zawsze modny i na czasie. Klasyczny fason, ozdobiony kokardką, która dodaje im niesamowitego uroku. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '239.50'),
+(5398, 'Sandały Rieker 68872-60 beige kombi 2051-845', 'Damskie Sandały Rieker 68872-60 beige kombi Niesamowicie wygodne sandały znanej i lubianej marki RIEKER. Wykonane z najwyższej jakości materiałów ( połączenie skóry naturalnej ze skórą ekologiczą i materiałem tekstylnym ). Zapinane na rzep. Świetnie wyprofilowana podeszwa, dopasowana do stopy. Kolor beżowy - idealny na lato. Sandały idealne na plażę, wycieczki oraz do biegania po mieście. Najlepsza jakość w najwyższej cenie!', '249.50'),
+(5399, 'Mokasyny Hey Dude Wally beig 2051-101', 'Męskie Półbuty Hey Dude Wally beig Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '229.50'),
+(5400, 'Mokasyny Hey Dude Riva blue coral 2051-100', 'Męskie Mokasyny Hey Dude Riva blue coral Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '229.50'),
+(5401, 'Mokasyny Hey Dude Wally Denim blue 2051-102', 'Męskie Mokasyny Hey Dude Wally Denim blue Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '229.50'),
+(5402, 'Mokasyny Hey Dude Wally funk ferro 2051-103', 'Męskie Mokasyny Hey Dude Wally funk ferro Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '229.50'),
+(5403, 'Mokasyny Hey Dude Farty funk grej 2051-097', 'Męskie Mokasyny Hey Dude Farty funk grej Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '199.50'),
+(5404, 'Mokasyny Hey Dude Farty Incas navy 2051-099', 'Męskie Mokasyny Hey Dude Farty Incas navy Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '199.50'),
+(5405, 'Mokasyny Hey Dude Farty denim blue 2051-096', 'Męskie Mokasyny Hey Dude Farty denim blue Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '199.50'),
+(5406, 'Mokasyny Hey Dude Farty incas beige 2051-098', 'Męskie Mokasyny Hey Dude Farty incas beige Fantastyczne, męskie mokasyny znanej i cenionej marki Hey Dude. Prosto z pachnącej winem Toskani. Niesamowicie wygodne i miękkie. Są tak lekkie, że mając je na nogach ma się wrażenie, że spaceruje się w kapciach ( w kolekcjach Hey Dude znajdują się mokasyny ważące zaledwie 14 dekagramów!) Wierzch wykonany jest z bawełnianego płótna, które sprawia, że są wyjątkowo przewiewne. Wkładka z grubej, sprężystej pianki pokrytej skórą naturalną. Podeszwa amortyzuje stawy podczas chodzenia. Buty nie pochłaniają zapachów i bakterii. Nadają się zarówno do spacerowania po plaży, jak i biegania po mieście. Świetna jakość w najlepszej cenie!', '199.50'),
+(5407, 'Mokasyny Armani Jeans A6573 Z3 1P White 2051-105', 'Mokasyny Armani Jeans A6573 Z3 1P White Męskie mokasyny znanej marki Armani Jeans, cenionej na całym świecie. Wykonane z najwyższej jakości skóry naturalnej ( zarówno z zewnatrz, jak i wewnatrz ). Kolor biało-beżowy idealnie wpisuje sie w najmodniejsze trendy. Ozdobione skórzanym sznurowaniem, które dodaje im niesamwitego uroku. Pasują zarówno do wiosennych, jak i letnich stylizacji. Pasują zarówno do sportowej elegancji, jak i casualowych stylizacji. Najlepsza jakość w najlepszej cenie! ', '699.50'),
+(5408, 'Klapki Rieker 65958-00 Schwarz 2051-846', 'Klapki Rieker 65958-00 Schwarz Klasyczne, proste. Świetne zarówno na plażę, jak i do biegania po mieście. Wykonane z dbałością o każdy szczegół. Świetne zarówno do jeansów, jak i sukienki!', '229.50'),
+(5409, 'Szpilki Versace Jeans E0YLBS1376461511 2051-016', 'Szpilki Versace Jeans E0YLBS1376461511 Przepiękne szpilki znanej i cenionej marki Versace Jeans. Wykonane z najwyższej jakości skóry ekologicznej. Wkładka ze skóry naturalnej. Wysoki, ale dobrze wyważony i stabilny obcas. Fason zwany gladiatorkami - jeden z najmodniejszych w tym sezonie. Połączenie odcieni brązu przypominające wężową skórkę. Świetnie pasują zarówno do eleganckich, wieczorowych kreacji, jak i zawsze modnych jeansów. Elegancja w najlepszym wydaniu!', '799.50'),
+(5410, 'Mokasyny Armani Jeans 06588 55 Y5 Blue 2051-106', 'Mokasyny Armani Jeans 06588 55 Y5 Blue Męskie mokasyny znanej marki Armani Jeans, cenionej na całym świecie. Wykonane z najwyższej jakości skóry naturalnej ( zarówno z zewnatrz, jak i wewnatrz ). Kolor niebieski idealnie wpisuje sie w najmodniejsze trendy. Pasują zarówno do wiosennych, jak i letnich stylizacji. Pasują zarówno do sportowej elegancji, jak i casualowych stylizacji. Najlepsza jakość w najlepszej cenie!', '549.50'),
+(5411, 'Japonki Armani Jeans A6561 38 Z2 Grey 2051-107', 'Japonki Armani Jeans A6561 38 Z2 Grey Najnowsza kolekcja fantastycznych, męskich japonek znanej i cenionej marki Armani Jeans. Wykonane z najwyższej jakości materiałów, wyjątkowo przyjemnych dla stóp. Na przodzie oraz podeszwie sygnowane logiem marki Armani Jeans. Klasyczny fason, idealny zarówno na plażę, jak i na basen. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '199.50'),
+(5412, 'Baleriny Gremax 1281 Czarny Lico 2051-019', 'Baleriny Gremax 1281 Czarny Lico Baleriny znanej i cenionej marki GREMAX. Wykonane z najwyższej jakości skory naturalnej - niezwykle miękkiej i delikatnej. Kolor czarny - uniwersalny i zawsze na czasie. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '265.00'),
+(5413, 'Baleriny Gremax 1281 Róż Lico 2051-020', 'Baleriny Gremax 1281 Róż Lico Baleriny znanej i cenionej marki GREMAX. Wykonane z najwyższej jakości skory naturalnej - niezwykle miękkiej i delikatnej. Kolor pudrowo różowy, który ożywi każdą wiosenno-letnią stylizację. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '265.00'),
+(5414, 'Mokasyny damskie Filipe Shoes 7513 vz Marin Ver Branco 2051-079', 'Mokasyny damskie Filipe Shoes 7513 vz Marin Ver Branco Mokasyny znanej i cenionej marki FILIPE. Fason na niewielkiej koturnie, która dodaje im sportowego charakteru. Wykonane z najwyższej jakości skory naturalnej lakierowanej- niezwykle miękkiej i delikatnej. Kolor czarny z czerwono-białymi dodatkami. Klasyczny fason, ozdobiony uroczą kokardką, która dodaje im niesamowitego uroku i kobiecości. Świetnie wyglądają zarówno z kobiecymi sukienkami , spódnicami, jak i zawsze modnymi jeansami. Z całą pewnością zrobią furorę!', '289.50'),
+(5415, 'Szpilki Zebra Sa 1595-560 Krem 2051-203', 'Szpilki Zebra Sa 1595-560 Krem Przepiękne szpilki marki ZEBRA. Wykonane z najwyższej skóry naturalnej. Fason do szpica, który już od kilku sezonów święci triumfy. Niezbyt wysoki, stabilny i dobrze wyważony obcas. Kolor kremowy, który idealnie pasuje do wiosenno-letnich stylizacji. Idealne zarówno do sukien ślubnych, eleganckich, wieczorowych sukienek, klasycznych kostiumów, jak i zawsze modnych jeansów. Z całą pewnością zachwycą niejedno spojrzenie. Najlepsza jakość w najlepszej cenie!', '329.50'),
+(5416, 'Damskie obuwie sportowe Rock Over Up Navy 2051-215', 'Damskie obuwie sportowe Rock Over Up Navy Niesamowiecie wygodne buty o sportowym fasonie znanej i cenionej marki ROCK. Wykonane z kolorowych gumek, ozdobnie przeplatanych, które sprawiają, że buty nie tylko ciekawie wyglądają, ale również są niezwykle wygodne. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia ROCK. Fason, który idealnie nadaje się na wycieczki, rower , albo do biegania po mieście. Z całą pewnością zrobią furorę!', '145.00'),
+(5417, 'Damskie obuwie sportowe Rock Over Up Lt Green Blue Grey White 2051-215', 'Damskie obuwie sportowe Rock Over Up Lt Green Blue Grey White Niesamowiecie wygodne buty o sportowym fasonie znanej i cenionej marki ROCK. Wykonane z kolorowych gumek, ozdobnie przeplatanych, które sprawiają, że buty nie tylko ciekawie wyglądają, ale również są niezwykle wygodne. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia ROCK. Fason, który idealnie nadaje się na wycieczki, rower , albo do biegania po mieście. Z całą pewnością zrobią furorę!', '145.00'),
+(5418, 'Damskie obuwie sportowe Rock Over Washed Blue Grey 2051-216', 'Damskie obuwie sportowe Rock Over Washed Blue Grey Niesamowiecie wygodne buty o sportowym fasonie znanej i cenionej marki ROCK. Wykonane z kolorowych gumek, ozdobnie przeplatanych, które sprawiają, że buty nie tylko ciekawie wyglądają, ale również są niezwykle wygodne. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia ROCK. Fason, który idealnie nadaje się na wycieczki, rower , albo do biegania po mieście. Z całą pewnością zrobią furorę!', '145.00'),
+(5419, 'Damskie obuwie sportowe Rock Cross Fuschia Grey 2051-213', 'Damskie obuwie sportowe Rock Cross Fuschia Grey Niesamowiecie wygodne buty o sportowym fasonie znanej i cenionej marki ROCK. Wykonane z kolorowych gumek, ozdobnie przeplatanych, które sprawiają, że buty nie tylko ciekawie wyglądają, ale również są niezwykle wygodne. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia ROCK. Fason, który idealnie nadaje się na wycieczki, rower , albo do biegania po mieście. Z całą pewnością zrobią furorę!', '145.00'),
+(5420, 'Sandały Azaleia 320-321 Black 2051-211', 'Sandały Azaleia 320-321 Black Niesamowicie wygodne buty o sportowym fasonie znanej i cenionej marki Azaleia. Wykone z wysokiej jakości materiałów niezwykle przyjemnych dla skóry. Klasyczny fason, zapinany na rzep - zarówno na kostce, jak i na palcach. Takie sposób zapinania umożliwia dopasowanie do stopy. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia Azaleia . Fason, który idealnie nadaje się na wycieczki, rower , na plażę albo do biegania po mieście. Z całą pewnością zrobią furorę!', '149.50'),
+(5421, 'Sandały Azaleia 320-323 Beige 2051-212', 'Sandały Azaleia 320-323 Beige Niesamowicie wygodne buty o sportowym fasonie znanej i cenionej marki Azaleia. Wykone z wysokiej jakości materiałów niezwykle przyjemnych dla skóry. Klasyczny fason, zapinany na rzep - zarówno na kostce, jak i na palcach. Takie sposób zapinania umożliwia dopasowanie do stopy. Świetnie wyprofilowana podeszwa, charakterystyczna dla obuwia Azaleia . Fason, który idealnie nadaje się na wycieczki, rower , na plażę albo do biegania po mieście. Z całą pewnością zrobią furorę!', '149.50'),
+(5422, 'Szpilki Zebra Sa 1535-525 Beż 2051-204', 'Szpilki Zebra Sa 1535-525 Beż Przepiękne szpilki marki ZEBRA. Wykonane z najwyższej skóry naturalnej. Fason do szpica, który już od kilku sezonów święci triumfy. Wysoki, stabilny i dobrze wyważony obcas. Kolor kremowy, który idealnie pasuje do wiosenno-letnich stylizacji. Idealne zarówno do eleganckich, wieczorowych sukienek, klasycznych kostiumów, jak i zawsze modnych jeansów. Z całą pewnością zachwycą niejedno spojrzenie. Najlepsza jakość w najlepszej cenie!', '329.50'),
+(5423, 'Łyżka Schuhanzieher 60cm', 'Łyżka do obuwia Schuhanzieher 60cm ', '8.00'),
+(5424, 'Łyżka Schuhanzieher 60cm', 'Łyżka do obuwia Schuhanzieher 60cm', '8.00'),
+(5425, 'Łyżka Schuhloffel 42cm', 'Metalowa łyżka do obuwia Schuhloffel 42cm', '14.00'),
+(5426, 'Wkładki Bama Deo Active', 'Wkładki Bama Deo Active', '16.00'),
+(5427, 'Wkładki Bama Wool', 'Wkładki Bama Wool', '8.00'),
+(5428, 'Wkładki Bama Alu Therm', 'Wkładki Bama Alu Therm', '9.00'),
+(5429, 'Wkładki do Japonek Bama ', 'Wkładki do Japonek Bama ', '13.00'),
+(5430, 'Bama zapiętki żelowe', 'Bama zapiętki żelowe', '14.00'),
+(5431, 'Bama podpiętki żelowe 1400', 'Bama podpiętki żelowe', '14.00'),
+(5432, 'Damskie obuwie sportowe Cravo Canela 96714-4 Champagne 2051-119', 'Damskie obuwie sportowe Cravo Canela 96714-4 Champagne Fantastyczne sportowe buty znanej i cenionej marki Cravo Canela. Wykonane z najwyższej jakości skóry naturalnej o bardzo miękkiej strukturze. Wkładka z dodatkową gąbką, która dopasowuje się do stopy. Sygnowane logiem marki Cravo Canela. Kolor złoty, który idealnie pasuje do wiosenno-letnich stylizacji. Świetnie będą wyglądały zarówno z sukienkami, jak i szortami czy zawsze modnymi jeansami. Świetna jakość z najlepszej cenie!', '289.50'),
+(5433, 'Damskie obuwie sportowe Cravo Canela 96714-4 Branco 2051-120', 'Damskie obuwie sportowe Cravo Canela 96714-4 Branco Fantastyczne sportowe buty znanej i cenionej marki Cravo Canela. Wykonane z najwyższej jakości skóry naturalnej o bardzo miękkiej strukturze. Wkładka z dodatkową gąbką, która dopasowuje się do stopy. Sygnowane logiem marki Cravo Canela. Kolor biały, który idealnie pasuje do wiosenno-letnich stylizacji. Świetnie będą wyglądały zarówno z sukienkami, jak i szortami czy zawsze modnymi jeansami. Świetna jakość z najlepszej cenie!', '289.50'),
+(5434, 'Damskie obuwie sportowe Cravo Canela 94959-2 Fasco Champagne 2051-121', 'Damskie obuwie sportowe Cravo Canela 94959-2 Fasco Champagne Fantastyczne sportowe buty znanej i cenionej marki Cravo Canela. Wykonane z najwyższej jakości skóry naturalnej o bardzo miękkiej strukturze. Sygnowane logiem marki Cravo Canela. Ozdobne zapięcie na rzep dodaje im niesamowitego uroku. Kolor złoty, który idealnie pasuje do wiosenno-letnich stylizacji. Świetnie będą wyglądały zarówno z sukienkami, jak i szortami czy zawsze modnymi jeansami. Świetna jakość z najlepszej cenie!', '329.50'),
+(5435, ' Sandały Eva Frutos 2693 Vaque Negra 18950 126', ' Sandały Eva Frutos 2693 Vaque Negra Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '189.50'),
+(5436, 'Sandały Eva Frutos 2693 Vaque Cuero 2051-127', 'Sandały Eva Frutos 2693 Vaque Cuero Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '189.50'),
+(5437, 'Sandały Eva Frutos 2693 Vaque Blanca 2051-25', 'Sandały Eva Frutos 2693 Vaque Blanca Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '189.50'),
+(5438, 'Sandały Eva Frutos 417 Negr 2051-124', 'Sandały Eva Frutos 417 Negr Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '199.50'),
+(5439, 'Sandały Eva Frutos 417 Taup 2051-123', ' Sandały Eva Frutos 417 Taup Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '199.50'),
+(5440, 'Sandały Eva Frutos 417 Beig. 2051-122', 'Sandały Eva Frutos 417 Beig. Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '199.50'),
+(5441, 'Sandały Eva Frutos 5054 Plomo 2051-130', 'Sandały Eva Frutos 5054 Plomo Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Ciężka podeszwa-platforma idealnie wyprofilowana. Skórzana wkładka z dodatkową "gąbką", sprawia, że są niezwykle miękkie i dopasowują się do stopy. Fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5442, 'Sandały Eva Frutos 5054 Plata 2051-131', 'Sandały Eva Frutos 5054 Plata Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Ciężka podeszwa-platforma idealnie wyprofilowana. Skórzana wkładka z dodatkową "gąbką", sprawia, że są niezwykle miękkie i dopasowują się do stopy. Fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5443, 'Sandały Eva Frutos 5054 Oro 2051129', 'Sandały Eva Frutos 5054 Oro Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Ciężka podeszwa-platforma idealnie wyprofilowana. Skórzana wkładka z dodatkową "gąbką", sprawia, że są niezwykle miękkie i dopasowują się do stopy. Fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5444, 'Sandały Eva Frutos 5057 Negro 2051-33', 'Sandały Eva Frutos 5057 Negro Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej oraz gum. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5445, 'Sandały Eva Frutos 5353 Cuero 2051-128', 'Sandały Eva Frutos 5353 Cuero Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '219.50'),
+(5446, 'Sandały Eva Frutos 5149 Marron Cuero 2051-132', 'Sandały Eva Frutos 5149 Marron Cuero Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sportowych sukienek, szortów, spodni jak i legginsów. Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '189.50'),
+(5447, 'Sandały Eva Frutos 5895 Negro Plomo 2051-139', 'Sandały Eva Frutos 5895 Negro Plomo Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilny, a zarazem niezwykle modny obcas - słupek. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5448, 'Sandały Eva Frutos 5895 Marron Cuero 2051-138', 'Sandały Eva Frutos 5895 Marron Cuero Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilny, a zarazem niezwykle modny obcas - słupek. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5449, 'Sandały Eva Frutos 5900 Marron Cuero 2051-136 ', 'Sandały Eva Frutos 5900 Marron Cuero Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilna i bardzo wygodna koturna. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie! ', '239.50'),
+(5450, 'Sandały Eva Frutos 5707 Cuero Marron 2051-134', 'Sandały Eva Frutos 5707 Cuero Marron Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilna i bardzo wygodna koturna. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie!', '239.50'),
+(5451, 'Sandały Eva Frutos 5716 Vaque Caoba 2051-135', 'Sandały Eva Frutos 5716 Vaque Caoba Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilna i bardzo wygodna koturna. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie! ', '239.50'),
+(5452, 'Sandały Eva Frutos 5987 Petroleoc Roble 2051-137', 'Sandały Eva Frutos 5987 Petroleo Roble Niesamowicie wygodne sandały znanej i cenionej marki Eva Frutos. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Niezwykle stabilna i bardzo wygodna koturna. Skórzana wkładka z dodatkową "gąbką", która sprawia, że są niezwykle miękkie i dopasowują się do stopy. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i szortów! Z całą pewnością tak jak zeszłoroczne kolekcje zachwycą niejedno spojrzenie i znajdą wielu wielbicieli. Świetna jakość w najlepszej cenie! ', '239.50'),
+(5453, 'Sandały Gremax 2593 czarny Lico 2051-023', 'Sandały Gremax 2593 czarny Lico Niesamowicie wygodne sandały znanej i cenionej marki Gremax. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Wkładka również ze skóry naturalnej. Niezwykle stabilny, a zarazem najmodniejszy obcas - słupek. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i zawsze modnych jeansów. Świetna jakość w najlepszej cenie!', '265.00'),
+(5454, 'Sandały Gremax 2065 Czarny Nubuk 2051-022', 'Sandały Gremax 2065 Czarny Nubuk Niesamowicie wygodne sandały znanej i cenionej marki Gremax. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Wkładka również ze skóry naturalnej. Niewielka, a zarazem bardzo stabilna koturna. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i zawsze modnych jeansów. Świetna jakość w najlepszej cenie!', '219.50');
+INSERT INTO `product` (`id`, `name`, `description`, `price`) VALUES
+(5455, 'Sandały Gremax 2065 Czarny Lico 2051-021', 'Sandały Gremax 2065 Czarny Lico Niesamowicie wygodne sandały znanej i cenionej marki Gremax. Wykonane z najwyższej jakości skóry naturalnej - miękkiej i delikatnej. Bardzo lekkie! Wkładka również ze skóry naturalnej. Niewielka, a zarazem bardzo stabilna koturna. Klasyczny fason, który idealnie pasuje zarówno do sukienek, spódnic, spodni, jak i zawsze modnych jeansów. Świetna jakość w najlepszej cenie!', '219.50'),
+(5456, 'Sneakersy Guess FL2HDAFAL12 Blkbl 2051-056', 'Sneakersy Guess FL2HDAFAL12 Blkbl 79950 056 Najmodniejsze w sezonie trampki na koturnie - sneakersy znanej i cenionej marki Guess. Wykonane z najwyższej jakości materiałów. Na języku sygnowane logiem marki Guess. Ozdobione nabłyszczanymi wstawkami, które nadają im niesamowitego charakteru i niespotykanego wyglądu. Ukryta koturna o wysokości 7,5 cm wspaniale modeluje sylwetkę. Świetnie pasują zarówno do sportowych sukienek, spódnic , jak i zawsze modnych jeansów. Sportowy look w najlepszym wydaniu!', '799.50'),
+(5457, 'Klapki Gioseppo Concheiro Black 2031-012', 'Klapki Gioseppo Concheiro Black Damskie klapki znanej i lubianej marki Gioseppo. Fason: japonki. Wysoka, ale niesamowicie wygodna i dobrze wyprofilowana koturna. Wykonane z najwyższej jakości materiałów - niezwykle miękkie i przyjemne w noszeniu. Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '89.50'),
+(5458, 'Klapki Gioseppo Manaus Red 2013-013', 'Klapki Gioseppo Manaus Red Damskie klapki znanej i lubianej marki Gioseppo. Fason: japonki. Wysoka, ale niesamowicie wygodna i dobrze wyprofilowana koturna. Wykonane z najwyższej jakości materiałów - niezwykle miękkie i przyjemne w noszeniu. Połączenie kilku idealnie pasujących do siebie kolorów tworzy fantastyczną całość, która ożywi letnie stylizacje. Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '99.50'),
+(5459, 'Klapki Gioseppo Sarek Turquisa 2013-018', 'Klapki Gioseppo Sarek Turquisa Damskie klapki znanej i lubianej marki Gioseppo. Wykonane z wysokiej jakości skóry. Połączenie brązu z kontrastowym turkusem tworzy fantastyczną całość, które idealnie ożywi letnie stylizacje! Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '119.50'),
+(5460, 'Japonki Gioseppo Huapi Grenn 2031-020', 'Japonki Gioseppo Huapi Green Damskie klapki znanej i lubianej marki Gioseppo. Wykonane z wysokiej jakości skóry. Połączenie brązu z kontrastową zieloenią tworzy fantastyczną całość, które idealnie ożywi letnie stylizacje! Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '119.50'),
+(5461, 'Sandały Azaleia 654 Love650 Ivory 2001-008', 'Sandały Azaleia 654 Love650 Ivory Damskie sandały znanej i lubianej marki Azaleia. Wykonane z wysokiej jakości materiałów. Bardzo lekkie! Wysoka, śwetnie wyprofilowana i bardzo stabilna koturna. Wiązanie na kostce dodaje im niesamowitego uroku. Połączenie kilku odcieni beżu idealnie ożywi letnie stylizacje. Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '149.50'),
+(5462, 'Sandały Gioseppo Bette Black 2013-027', 'Sandały Gioseppo Bette Black Damskie sandały znanej i lubianej marki Gioseppo. Wykonane z wysokiej jakości materiałów. Bardzo lekkie! Wysoka, świetnie wyprofilowana i bardzo stabilna koturna. Wiązanie na kostce dodaje im niesamowitego uroku. Połączenie kilku kolorów idealnie ożywi letnie stylizacje. Pasują zarówno do sukienek, spódnic i szortów. Najlepsza jakość w najlepszej cenie!', '219.50'),
+(5463, 'Sandały Gioseppo Kim navy 2013-028', 'Sandały Gioseppo Kim navy Damskie sandały znanej i lubianej marki Gioseppo. Wykonane z wysokiej jakości materiałów. Bardzo lekkie! Wysoka, śwetnie wyprofilowana i bardzo stabilna koturna. Połączenie kilku kolorów idealnie ożywi letnie stylizacje. Pasują zarówno do sukienek, spódnic i szortów. Świetnie będą wyglądały z ubraniami w stylu marynarskim. Najlepsza jakość w najlepszej cenie!', '219.50'),
+(5464, 'Sandały Gioseppo Bette Sand 2013-030', 'Sandały Gioseppo Bette Sand Damskie sandały znanej i lubianej marki Gioseppo. Wykonane z wysokiej jakości materiałów. Bardzo lekkie! Wysoka, śwetnie wyprofilowana i bardzo stabilna koturna. Wiązanie na kostce dodaje im niesamowitego uroku. Połączenie kilku odcieni beżu oraz różu idealnie ożywi letnie stylizacje. Pasują zarówno do sukienek, spódnic i szortów. Idealne zarówno na plażę, jak i do biegania po mieście. Najlepsza jakość w najlepszej cenie!', '219.50'),
+(5465, 'Sandały Azaleia 135 AZ130 Black 2010-026', 'Sandały Azaleia 135 AZ130 Black Damskie sandały znanej i lubianej marki Azaleia. Fason znany również pod nazwą gladiatorki/rzymianki. Wykonane z wysokiej jakości materiałów. Bardzo lekkie! Kolor czarny, który pasuje "do wszystkiego ". Ozdobione srebrnymi dżetami, które dodaja im rozkowego charakteru. Świetnie wyglądają zarówno do sukienek, spódnic jak i szortów. Z całą pewnością zrobioą furorę!', '179.50');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `product_foto`
+--
+
+CREATE TABLE IF NOT EXISTS `product_foto` (
+  `fk_product` int(11) NOT NULL,
+  `foto` text NOT NULL,
+  KEY `fk_product` (`fk_product`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `product_foto`
+--
+
+INSERT INTO `product_foto` (`fk_product`, `foto`) VALUES
+(5465, '_1428499462.jpg'),
+(5464, '_1428498176.jpg'),
+(5463, '_1428497717.jpg'),
+(5462, '_1428497102.jpg'),
+(5461, '_1428496184.jpg'),
+(5460, '_1428495594.jpg'),
+(5459, '_1428495382.jpg'),
+(5458, '_1428494028.jpg'),
+(5457, '_1428493406.jpg'),
+(5456, '_1428058085.jpg'),
+(5455, '_1428053167.jpg'),
+(5454, '_1428052954.jpg'),
+(5453, '_1428052676.jpg'),
+(5452, '_1428051678.jpg'),
+(5451, '_1428051488.jpg'),
+(5450, '_1428050766.jpg'),
+(5449, '_1428050363.jpg'),
+(5448, '_1428050172.jpg'),
+(5447, '_1428050047.jpg'),
+(5446, '_1428046805.jpg'),
+(5445, '_1427981710.jpg'),
+(5444, '_1427979960.jpg'),
+(5443, '_1427979561.jpg'),
+(5442, '_1427978627.jpg'),
+(5441, '_1427978298.jpg'),
+(5440, '_1427974433.jpg'),
+(5439, '_1427974112.jpg'),
+(5438, '_1427973837.jpg'),
+(5437, '_1427972760.jpg'),
+(5436, '_1427972481.jpg'),
+(5435, '_1427972233.jpg'),
+(5434, '_1427964142.jpg'),
+(5433, '_1427963700.jpg'),
+(5432, '_1427963235.jpg'),
+(5431, '_1427894183.jpg'),
+(5430, '_1427893987.jpg'),
+(5429, '_1427881552.jpg'),
+(5428, '_1427880798.jpg'),
+(5427, '_1427880417.jpg'),
+(5426, '_1427879706.jpg'),
+(5425, '_1427879261.jpg'),
+(5424, '_1427879054.jpg'),
+(5423, '_1427878859.jpg'),
+(5422, '_1427461631.jpg'),
+(5421, '_1427456822.jpg'),
+(5420, '_1427456447.jpg'),
+(5419, '_1427455850.jpg'),
+(5418, '_1427453307.jpg'),
+(5417, '_1427452371.jpg'),
+(5416, '_1427452070.jpg'),
+(5415, '_1427375655.jpg'),
+(5414, '_1427375078.jpg'),
+(5413, '_1427281669.jpg'),
+(5412, '_1427280979.jpg'),
+(5411, '_1427279936.jpg'),
+(5410, '_1427276846.jpg'),
+(5409, '_1427276212.jpg'),
+(5408, '_1427275570.jpg'),
+(5407, '_1426859687.jpg'),
+(5406, '_1426774395.jpg'),
+(5405, '_1426773952.jpg'),
+(5404, '_1426773671.jpg'),
+(5403, '_1426773427.jpg'),
+(5402, '_1426769518.jpg'),
+(5401, '_1426769114.jpg'),
+(5400, '_1426768895.jpg'),
+(5399, '_1426768685.jpg'),
+(5398, '_1426768350.jpg'),
+(5397, '_1426519459.jpg'),
+(5396, '_1426519334.jpg'),
+(5395, '_1426519102.jpg'),
+(5394, '_1426518910.jpg'),
+(5393, '_1426518647.jpg'),
+(5392, '_1426518422.jpg'),
+(5391, '_1426518295.jpg'),
+(5390, '_1426517876.jpg'),
+(5389, '_1426517743.jpg'),
+(5388, '_1426517495.jpg'),
+(5387, '_1426517050.jpg'),
+(5386, '_1426516624.jpg'),
+(5385, '_1426516274.jpg'),
+(5384, '_1426515556.jpg'),
+(5383, '_1426515039.jpg'),
+(5382, '_1426514720.jpg'),
+(5381, '_1426259584.jpg'),
+(5380, '_1426259103.jpg'),
+(5379, '_1426258947.jpg'),
+(5378, '_1426258718.jpg'),
+(5377, '_1426258553.jpg'),
+(5376, '_1426256772.jpg'),
+(5375, '_1426256532.jpg'),
+(5374, '_1426255854.jpg'),
+(5373, '_1426255489.jpg'),
+(5372, '_1426255295.jpg'),
+(5371, '_1426255169.jpg'),
+(5370, '_1426171857.jpg'),
+(5369, '_1426171595.jpg'),
+(5368, '_1426171062.jpg'),
+(5367, '_1426170106.jpg'),
+(5366, '_1426169814.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `product_type`
+--
+
+CREATE TABLE IF NOT EXISTS `product_type` (
+  `fk_product` int(11) NOT NULL,
+  `fk_type` int(11) NOT NULL,
+  KEY `fk_product` (`fk_product`,`fk_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `product_type`
+--
+
+INSERT INTO `product_type` (`fk_product`, `fk_type`) VALUES
+(5366, 12),
+(5366, 1002),
+(5367, 12),
+(5367, 1002),
+(5368, 12),
+(5368, 1001),
+(5369, 18),
+(5369, 1001),
+(5370, 18),
+(5370, 1001),
+(5371, 48),
+(5371, 1001),
+(5372, 48),
+(5372, 1001),
+(5373, 48),
+(5373, 1001),
+(5374, 48),
+(5374, 1001),
+(5375, 36),
+(5375, 1003),
+(5376, 36),
+(5376, 1003),
+(5377, 48),
+(5377, 1001),
+(5378, 48),
+(5378, 1001),
+(5379, 36),
+(5379, 1003),
+(5380, 48),
+(5380, 1001),
+(5381, 36),
+(5381, 1003),
+(5382, 17),
+(5382, 1001),
+(5383, 17),
+(5383, 1001),
+(5384, 17),
+(5384, 1001),
+(5385, 12),
+(5385, 1001),
+(5386, 12),
+(5386, 1001),
+(5387, 12),
+(5387, 1001),
+(5388, 11),
+(5388, 1002),
+(5389, 11),
+(5389, 1002),
+(5390, 11),
+(5390, 1002),
+(5391, 1),
+(5391, 1001),
+(5392, 1),
+(5392, 1001),
+(5393, 1),
+(5393, 1001),
+(5394, 11),
+(5394, 1001),
+(5395, 11),
+(5395, 1001),
+(5396, 11),
+(5396, 1001),
+(5397, 11),
+(5397, 1001),
+(5398, 17),
+(5398, 1001),
+(5399, 11),
+(5399, 1002),
+(5400, 11),
+(5400, 1002),
+(5401, 11),
+(5401, 1002),
+(5402, 11),
+(5402, 1002),
+(5403, 11),
+(5403, 1002),
+(5404, 11),
+(5404, 1002),
+(5405, 11),
+(5405, 1002),
+(5406, 11),
+(5406, 1002),
+(5407, 11),
+(5407, 1002),
+(5408, 8),
+(5408, 1001),
+(5409, 18),
+(5409, 1001),
+(5410, 11),
+(5410, 1002),
+(5411, 6),
+(5411, 1002),
+(5412, 1),
+(5412, 1001),
+(5413, 1),
+(5413, 1001),
+(5414, 11),
+(5414, 1001),
+(5415, 18),
+(5415, 1001),
+(5416, 12),
+(5416, 1001),
+(5417, 12),
+(5417, 1001),
+(5418, 12),
+(5418, 1001),
+(5419, 12),
+(5419, 1001),
+(5420, 17),
+(5420, 1001),
+(5421, 17),
+(5421, 1001),
+(5422, 18),
+(5422, 1001),
+(5423, 47),
+(5423, 1003),
+(5424, 47),
+(5424, 1003),
+(5425, 47),
+(5425, 1003),
+(5426, 31),
+(5426, 1003),
+(5427, 31),
+(5427, 1003),
+(5428, 31),
+(5428, 1003),
+(5429, 31),
+(5429, 1003),
+(5430, 31),
+(5430, 1003),
+(5431, 31),
+(5431, 1003),
+(5432, 12),
+(5432, 1001),
+(5433, 12),
+(5433, 1001),
+(5434, 12),
+(5434, 1001),
+(5435, 17),
+(5435, 1001),
+(5436, 17),
+(5436, 1001),
+(5437, 17),
+(5437, 1001),
+(5438, 17),
+(5438, 1001),
+(5439, 17),
+(5439, 1001),
+(5440, 17),
+(5440, 1001),
+(5441, 17),
+(5441, 1001),
+(5442, 17),
+(5442, 1001),
+(5443, 17),
+(5443, 1001),
+(5444, 17),
+(5444, 1001),
+(5445, 17),
+(5445, 1001),
+(5446, 17),
+(5446, 1001),
+(5447, 17),
+(5447, 1001),
+(5448, 17),
+(5448, 1001),
+(5449, 17),
+(5449, 1001),
+(5450, 17),
+(5450, 1001),
+(5451, 17),
+(5451, 1001),
+(5452, 17),
+(5452, 1001),
+(5453, 17),
+(5453, 1001),
+(5454, 17),
+(5454, 1001),
+(5455, 17),
+(5455, 1001),
+(5456, 12),
+(5456, 1001),
+(5457, 8),
+(5457, 1001),
+(5458, 8),
+(5458, 1001),
+(5459, 8),
+(5459, 1001),
+(5460, 6),
+(5460, 1001),
+(5461, 17),
+(5461, 1001),
+(5462, 17),
+(5462, 1001),
+(5463, 17),
+(5463, 1001),
+(5464, 17),
+(5464, 1001),
+(5465, 17),
+(5465, 1001);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `type`
+--
+
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1004 ;
+
+--
+-- Zrzut danych tabeli `type`
+--
+
+INSERT INTO `type` (`id`, `name`) VALUES
+(1, 'Baleriny'),
+(6, 'Japonki'),
+(8, 'Klapki'),
+(11, 'Mokasyny'),
+(12, 'Obuwie sportowe'),
+(17, 'Sandały'),
+(18, 'Szpilki'),
+(31, 'Wkładki'),
+(36, 'Torby i torebki'),
+(47, 'Łyżki do butów'),
+(48, 'Espadryle'),
+(1001, 'Damskie'),
+(1002, 'Męskie'),
+(1003, 'Akcesoria');
